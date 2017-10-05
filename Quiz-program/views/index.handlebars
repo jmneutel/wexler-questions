@@ -1,0 +1,76 @@
+<h2>Preliminary Information</h2>
+
+<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB8a9Vk7XDkitajkfyWbapvL0UAX-Wk4SQ",
+    authDomain: "wexler-f6765.firebaseapp.com",
+    databaseURL: "https://wexler-f6765.firebaseio.com",
+    projectId: "wexler-f6765",
+    storageBucket: "wexler-f6765.appspot.com",
+    messagingSenderId: "542456379621"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/javascript/data.js"></script>
+    <script type="text/javascript" src="assets/javascript/logic.js"></script>
+
+<form name="config" action="#"><p>
+
+
+
+<input type="radio" name="gender" value="M" onclick="set_gender(0);" checked>Male&nbsp;
+
+<input type="radio" name="gender" value="F" onclick="set_gender(1);">Female<br>
+
+
+
+<input type="radio" name="testform" value="L" onclick="use_long_form(true);" checked>Long Form&nbsp;
+
+<input type="radio" name="testform" value="S" onclick="use_long_form(false);">Short Form<br>
+
+
+
+</p></form>
+
+
+
+<h1><script type="text/javascript">document.write(questions[0]);</script></h1>
+
+
+
+<form name="questions" action="#"><p>
+
+
+<div class="panel panel-default">
+<script type="text/javascript">doc_write_all_questions();</script>
+</div>
+
+
+<br>
+
+
+
+<input type="button" value="Score" onclick="score_rb(document.forms.questions);">
+
+
+
+<br><br>
+
+
+
+</p></form>
+
+
+
+<p>&nbsp<p>
+
+
+
+
+<!-- copyright (i3) -->
