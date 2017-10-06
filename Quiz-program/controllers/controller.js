@@ -14,7 +14,7 @@ var defaultAppConfig = {
 var defaultApp = firebase.initializeApp(defaultAppConfig);
 
 router.post('/test', function(req, res) {
-
+var counter = 1;
 var test1;
 var newArray = [];
 var api_key = 'key-7bfb3ffd65c2689d8ab8606b2f1c20f7';
@@ -35,12 +35,18 @@ firebase.database().ref().once("value", function(snapshot, prevChildKey) {
 
     }
 
-    //console.log(myData);
+    console.log(myData);
     for (var j = 0; j < myData.length; j++) {
 
+      test1 = "<td>" + myData[j] + "</td>";
+
+      if (j % 6 === 0) {
+        newArray.push("</tr><tr>");
+      }
       //console.log("<p>" + myData[j] + "</p>");
 
-      test1 = "<p>" + myData[j] + "</p>";
+      
+  
 
       newArray.push(test1);
 
@@ -57,7 +63,7 @@ firebase.database().ref().once("value", function(snapshot, prevChildKey) {
     from: 'MMPI-2 Scoring <postmaster@sandbox5056b6306135476486c909ce79366194.mailgun.org>',
     to: 'jared@teachingtechservices.com',
     subject: 'Results',
-    html: "Here is the data:" + stringedAlong
+    html: "Here is the data:" + "<table><thead><tr><td>Scale</td><td>Scale Description</td><td>Raw Score</td><td>K Score</td><td>T Score</td><td>% Answered</td></tr></thead><tbody><tr>"+ stringedAlong + "</tbody></table>"
   };
 
   setTimeout(function() {mailgun.messages().send(data, function (error, body) {

@@ -30,7 +30,16 @@ function append_td(row,txt)
 	
 	var text = txt;
 
-	database.ref('entry').push(text);
+	if (text === undefined) {
+		text = "undefined";
+	}
+
+	//console.log(text);
+
+	if (text != "Scale" && text != "Scale Description" && text != "Raw Score" && text != "K Score" && text != "T Score" && text != "% Answered" && text != "Question" && text != "Answer" && text !="Question Text") {
+
+		database.ref('entry').push(text);
+	}
 
 	row.appendChild(tdata);
 
@@ -90,7 +99,6 @@ function make_table()
 
 	jared = table;
 
-	setTimeout( function() {post("/test")}, 3000);
 	//console.log(table);
 	//console.log(tbody);
 
