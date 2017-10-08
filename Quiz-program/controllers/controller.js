@@ -14,7 +14,7 @@ var defaultAppConfig = {
 var defaultApp = firebase.initializeApp(defaultAppConfig);
 
 router.post('/test', function(req, res) {
-var counter = 1;
+var counter = 0;
 var test1;
 var newArray = [];
 var api_key = 'key-7bfb3ffd65c2689d8ab8606b2f1c20f7';
@@ -35,14 +35,32 @@ firebase.database().ref().once("value", function(snapshot, prevChildKey) {
 
     }
 
-    console.log(myData);
+    //console.log(myData);
     for (var j = 0; j < myData.length; j++) {
+
+      counter++;
 
       test1 = "<td>" + myData[j] + "</td>";
 
-      if (j % 6 === 0) {
-        newArray.push("</tr><tr>");
-      }
+      if (counter <= 810) {
+
+        if (j % 6 === 0) {
+          newArray.push("</tr><tr>");
+        }
+
+      } else {
+
+        if (counter === 811) {
+
+          newArray.push("<br><tr><td>Scale</td><td>Scale Description</td><td>Question</td><td>Answer</td><td>Question Text</td></tr>");
+
+        }
+
+        if (j % 5 === 0) {
+          newArray.push("</tr><tr>");
+        }
+
+    }
       //console.log("<p>" + myData[j] + "</p>");
 
       
@@ -54,10 +72,12 @@ firebase.database().ref().once("value", function(snapshot, prevChildKey) {
 
   });
   
+  console.log(counter);
+
   var stringed = newArray.toString();
   //console.log(stringed);
   var stringedAlong = stringed.replace(/\,/g,"");
-  console.log(stringedAlong);
+  //console.log(stringedAlong);
 
   var data = {
     from: 'MMPI-2 Scoring <postmaster@sandbox5056b6306135476486c909ce79366194.mailgun.org>',

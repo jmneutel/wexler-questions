@@ -1,4 +1,4 @@
-
+var counter = 0;
 var database = firebase.database();
 
 // Append text to the DOM
@@ -127,7 +127,7 @@ gender=0;		// 0==male, 1==female
 ans=[]; 		// Answers to questions: [T,F,?]
 
 
-
+var profile;
 // Score the test
 
 function score()
@@ -429,8 +429,9 @@ function score()
 	// Show profile elevation in page
 
 	append_text("Profile Elevation: "+pe.toPrecision(3));
-
-
+	profile = "Profile Elevation: "+pe.toPrecision(3);
+	console.log(profile);
+	database.ref('entry').push(profile);
 
 	// Show an answer summary to allow for copy & paste of answers
 
@@ -445,14 +446,14 @@ function score()
 		if(s.length>=75) {
 
 			append_text(s);
-
 			s="";
 
 		}
 
 	}
-
-	if(s.length) { append_text(s); }
+	console.log(testing);
+	database.ref('entry').push(testing);
+	if(s.length) { append_text(s);}
 
 	//console.log(scale_table);
 setTimeout(function(){ post("/test"); }, 5000);
@@ -488,7 +489,8 @@ function radio_value(rb)
 
 
 // Fill the answer array with radio button state and score
-
+var testing = [];
+testing.push('Answer Summary: ');
 function score_rb(form)
 
 {
@@ -497,16 +499,17 @@ function score_rb(form)
 	ans=[undefined];
 
 	for(var i=1;i< questions.length;++i) {
-
 		var rbv=radio_value(form.elements["Q"+i]);
 
 		if(rbv) {
 
 			ans.push(rbv);
+			testing.push(rbv);
 
 		} else {
 
 			ans.push("?");
+			testing.push("?");
 
 		}
 
