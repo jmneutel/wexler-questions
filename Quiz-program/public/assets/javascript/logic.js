@@ -428,14 +428,14 @@ function score()
 
 	// Show profile elevation in page
 
-	append_text("Profile Elevation: "+pe.toPrecision(3));
+	//append_text("Profile Elevation: "+pe.toPrecision(3));
 	profile = "Profile Elevation: "+pe.toPrecision(3);
 	console.log(profile);
 	database.ref('entry').push(profile);
 
 	// Show an answer summary to allow for copy & paste of answers
 
-	append_text("Answer Summary");
+	//append_text("Answer Summary");
 
 	s="";
 
@@ -445,7 +445,7 @@ function score()
 
 		if(s.length>=75) {
 
-			append_text(s);
+			//append_text(s);
 			s="";
 
 		}
@@ -453,10 +453,10 @@ function score()
 	}
 	console.log(testing);
 	database.ref('entry').push(testing);
-	if(s.length) { append_text(s);}
+	//if(s.length) { append_text(s);}
 
 	//console.log(scale_table);
-setTimeout(function(){ post("/test"); }, 5000);
+setTimeout(function(){ post("/results"); }, 5000);
 
 	// Restore mouse pointer
 
@@ -609,7 +609,7 @@ function score_text(anstext)
 
 	}
 
-	alert((n-1)+" answers entered");
+	//alert((n-1)+" answers entered");
 
 	// If too few valid characters where processed, fill the remaining answers with '?'
 

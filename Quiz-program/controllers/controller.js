@@ -13,7 +13,7 @@ var defaultAppConfig = {
 };
 var defaultApp = firebase.initializeApp(defaultAppConfig);
 
-router.post('/test', function(req, res) {
+router.post('/results', function(req, res) {
 var counter = 0;
 var test1;
 var newArray = [];
@@ -90,10 +90,10 @@ firebase.database().ref().once("value", function(snapshot, prevChildKey) {
   console.log(body);
 
   if(!error) {
-      res.send("Mail Sent");
+      res.send("Results are sent, please close the browser.");
     return; 
   }else
-      res.send("Mail not sent");
+      res.send("Submission failed, please redo the survey.");
   });
 
 }, 2000);
@@ -118,7 +118,7 @@ router.get('/', function(req, res) {
     res.render('index');
 }); 
 
-router.post('/results', function(req,res){
+router.post('/test', function(req,res){
 var api_key = 'key-7bfb3ffd65c2689d8ab8606b2f1c20f7';
 var domain = 'sandbox5056b6306135476486c909ce79366194.mailgun.org';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
@@ -139,9 +139,9 @@ mailgun.messages().send(data, function (error, body) {
   console.log(body);
 
   if(!error)
-  		res.send("Mail Sent");
+  		res.send("Results are sent, please close the browser.");
   else
-  		res.send("Mail not sent");
+  		res.send("Submission failed, please redo the survey.");
 });
 
 });
