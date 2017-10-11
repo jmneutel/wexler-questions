@@ -1,0 +1,33 @@
+{
+  "name": "quiz-program",
+  "version": "1.0.0",
+  "description": "PrD Testing",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "browserify-fs": "^1.0.0",
+    "cheerio": "^1.0.0-rc.2",
+    "dynamic-html-pdf": "^0.0.2",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "firebase": "^4.4.0",
+    "firebase-admin": "^5.3.0",
+    "firebase-cli": "^1.2.0",
+    "firebase-functions": "^0.6.3",
+    "firebase-tools": "^3.12.0",
+    "fs": "^0.0.1-security",
+    "html": "^1.0.0",
+    "jquery": "^3.2.1",
+    "mailgun-js": "^0.13.1",
+    "path": "^0.12.7",
+    "phantomjs": "^2.1.7",
+    "scraperjs": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

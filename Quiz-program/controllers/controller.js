@@ -6,10 +6,10 @@ var text;
 const functions = require('firebase-functions');
 
 var defaultAppConfig = {
-  apiKey: "AIzaSyB8a9Vk7XDkitajkfyWbapvL0UAX-Wk4SQ",
-  authDomain: "wexler-f6765.firebaseapp.com",
-  databaseURL: "https://wexler-f6765.firebaseio.com",
-  storageBucket: "wexler-f6765.appspot.com",
+  apiKey: "AIzaSyBLyYYHs6NGfhtpUEwYZzXnFzHiKLcvkHY",
+  authDomain: "prd-testing-2fca9.firebaseapp.com",
+  databaseURL: "https://prd-testing-2fca9.firebaseio.com",
+  storageBucket: "prd-testing-2fca9.appspot.com",
 };
 var defaultApp = firebase.initializeApp(defaultAppConfig);
 
@@ -80,7 +80,7 @@ firebase.database().ref().once("value", function(snapshot, prevChildKey) {
   //console.log(stringedAlong);
 
   var data = {
-    from: 'MMPI-2 Scoring <postmaster@sandbox5056b6306135476486c909ce79366194.mailgun.org>',
+    from: 'PrD Testing <postmaster@sandbox5056b6306135476486c909ce79366194.mailgun.org>',
     to: 'jared@teachingtechservices.com',
     subject: 'Results',
     html: "Here is the data:" + "<table><thead><tr><td>Scale</td><td>Scale Description</td><td>Raw Score</td><td>K Score</td><td>T Score</td><td>% Answered</td></tr></thead><tbody><tr>"+ stringedAlong + "</tbody></table>"
